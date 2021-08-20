@@ -22,10 +22,20 @@ script:
 
 # Definir o Deploy no Heroku
 deploy:
-  provider: heroku
-  strategy: api
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-pauloalbuquerque
-  on:
+  - provider: heroku
+    strategy: api
+    api_key: $HEROKU_API_KEY
+    edge: true 
+    app: devopslab-pauloalbuquerque
+    on:
       branch: main
+  
+  - provider: gae
+    keyfile: ../lab-devops-cloud-1-95cfca154eac.json
+    project: lab-devops-cloud-1
+    on:
+      branch: main
+before_install:
+- openssl aes-256-cbc -K $encrypted_458499fd1b95_key -iv $encrypted_458499fd1b95_iv
+  -in lab-devops-cloud-1-95cfca154eac.json.enc -out ../lab-devops-cloud-1-95cfca154eac.json
+  -d
