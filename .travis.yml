@@ -48,7 +48,7 @@ jobs:
       deploy:
         provider: gae
         keyfile: ../lab-devops-cloud-1-95cfca154eac.json
-        project: projeto01gaby
+        project: lab-devops-cloud-1
         on:
           branch: main
 
